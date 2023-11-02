@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Electrolux-Sans-Bold.ttf",
+      "sha1": "2dbb9cb3d6f301a3bd671524d78ed836a9229f6f"
+    },
+    {
+      "path": "assets/fonts/Electrolux-Sans-Light.ttf",
+      "sha1": "efb6c4976a56b423e13a3bd06cc057fbbfe7a798"
+    },
+    {
+      "path": "assets/fonts/Electrolux-Sans-Semibold.ttf",
+      "sha1": "7d349d9c75d9792130cc012415b84846d56530fa"
+    },
+    {
+      "path": "assets/fonts/Electrolux-Sans-Thin.ttf",
+      "sha1": "219cf1f5071ca4aec2d5c691f2016f24a86fcd72"
+    },
+    {
+      "path": "assets/fonts/Electrolux-Sans.ttf",
+      "sha1": "499b1596f3b5f036ad43197d8816434a6db203d4"
+    }
+  ]
+}
