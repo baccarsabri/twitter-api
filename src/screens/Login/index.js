@@ -8,12 +8,14 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { Button, Text } from 'react-native-paper';
-import { TwitterCallBack, getAuth } from '../../services/Service';
+import { TwitterCallBack, add, getAuth } from '../../services/Service';
 import WebView from 'react-native-webview';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import NavigationName from '../../constants/NavigationName';
 import URL from 'url-parse';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import LocalStorageKey from '../../constants/LocalStorageKey';
 const styles = StyleSheet.create({
 
     webView: {
@@ -52,8 +54,13 @@ const Login = ({ navigation }) => {
             const parsedUrl = new URL(url, true);
 
             const oauthToken = parsedUrl.query.oauth_token;
+            await AsyncStorage.setItem(LocalStorageKey.token, oauthToken);
             const oauthVerifier = parsedUrl.query.oauth_verifier;
-            const data = await TwitterCallBack(oauthToken, oauthVerifier)
+            const data = await TwitterCallBack(oauthToken, oauthVerifier).then(async () => {
+                await add();
+            }
+
+            )
             console.log(data);
 
             console.log("oauth_token:", oauthToken);
