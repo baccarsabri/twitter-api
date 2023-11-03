@@ -22,7 +22,15 @@ export const getAuth = async () => {
 };
 export const TwitterCallBack = async (oauth_token, oauth_verifier) => {
     try {
-        const response = await axiosInstance.get(`/sessions/saveAccessTokens?oauth_token=${oauth_token}&oauth_verifier=${oauth_verifier}`);
+        const headers = {
+
+            'oauth_token': oauth_token,
+            'oauth_verifier': oauth_verifier
+
+        };
+        const response = await axiosInstance.get(`/sessions/saveAccessTokens`, {
+            headers: headers
+        });
 
 
         return response.data;
